@@ -86,6 +86,131 @@ const Index = () => {
       reviews: 445,
       description: "Voice-controlled smart speaker with premium audio and home automation.",
       category: "Smart Home"
+    },
+    {
+      id: 7,
+      name: "Wireless Gaming Mouse",
+      price: 79.99,
+      originalPrice: 99.99,
+      image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop",
+      rating: 4.6,
+      reviews: 189,
+      description: "High-precision wireless gaming mouse with customizable RGB lighting.",
+      category: "Electronics"
+    },
+    {
+      id: 8,
+      name: "Minimalist Desk Lamp",
+      price: 89.99,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      rating: 4.3,
+      reviews: 112,
+      description: "Modern LED desk lamp with adjustable brightness and USB charging port.",
+      category: "Furniture"
+    },
+    {
+      id: 9,
+      name: "Bluetooth Earbuds",
+      price: 129.99,
+      originalPrice: 159.99,
+      image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop",
+      rating: 4.4,
+      reviews: 278,
+      description: "True wireless earbuds with active noise cancellation and long battery life.",
+      category: "Electronics"
+    },
+    {
+      id: 10,
+      name: "Casual Denim Jacket",
+      price: 89.99,
+      image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop",
+      rating: 4.5,
+      reviews: 156,
+      description: "Classic denim jacket with modern fit and premium quality denim.",
+      category: "Clothing"
+    },
+    {
+      id: 11,
+      name: "Yoga Mat Premium",
+      price: 49.99,
+      originalPrice: 69.99,
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop",
+      rating: 4.7,
+      reviews: 201,
+      description: "Non-slip premium yoga mat with extra cushioning and eco-friendly materials.",
+      category: "Fitness"
+    },
+    {
+      id: 12,
+      name: "Stainless Steel Water Bottle",
+      price: 24.99,
+      image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop",
+      rating: 4.6,
+      reviews: 334,
+      description: "Insulated stainless steel water bottle that keeps drinks cold for 24 hours.",
+      category: "Lifestyle"
+    },
+    {
+      id: 13,
+      name: "Mechanical Keyboard",
+      price: 159.99,
+      image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop",
+      rating: 4.8,
+      reviews: 145,
+      description: "Premium mechanical keyboard with cherry switches and RGB backlighting.",
+      category: "Electronics"
+    },
+    {
+      id: 14,
+      name: "Leather Crossbody Bag",
+      price: 119.99,
+      originalPrice: 149.99,
+      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
+      rating: 4.4,
+      reviews: 98,
+      description: "Genuine leather crossbody bag with multiple compartments and adjustable strap.",
+      category: "Accessories"
+    },
+    {
+      id: 15,
+      name: "Smart LED Light Bulbs",
+      price: 34.99,
+      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop",
+      rating: 4.2,
+      reviews: 267,
+      description: "WiFi-enabled smart LED bulbs with color changing and voice control features.",
+      category: "Smart Home"
+    },
+    {
+      id: 16,
+      name: "Running Sneakers",
+      price: 139.99,
+      originalPrice: 179.99,
+      image: "https://images.unsplash.com/photo-1542291026-7eec264bdf9b?w=400&h=400&fit=crop",
+      rating: 4.6,
+      reviews: 412,
+      description: "Lightweight running sneakers with advanced cushioning and breathable mesh.",
+      category: "Footwear"
+    },
+    {
+      id: 17,
+      name: "Portable Phone Charger",
+      price: 39.99,
+      image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop",
+      rating: 4.3,
+      reviews: 189,
+      description: "10,000mAh portable charger with fast charging and multiple USB ports.",
+      category: "Electronics"
+    },
+    {
+      id: 18,
+      name: "Coffee Maker",
+      price: 89.99,
+      image: "https://images.unsplash.com/photo-1509048191080-d2effbada968?w=400&h=400&fit=crop",
+      rating: 4.5,
+      reviews: 156,
+      description: "Programmable coffee maker with thermal carafe and auto-shutoff feature.",
+      category: "Kitchen"
     }
   ]);
 
