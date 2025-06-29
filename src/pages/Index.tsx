@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { ShoppingCart, Search, Menu, Star, Plus, Minus, X, Heart, Eye } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -162,10 +161,11 @@ const Index = () => {
       return;
     }
     
-    toast({
-      title: "Checkout initiated 🚀",
-      description: `Processing payment for $${getTotalPrice().toFixed(2)}. Redirecting to payment gateway...`,
-    });
+    // Save cart to localStorage for checkout page
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Navigate to checkout page
+    window.location.href = '/checkout';
   };
 
   return (
