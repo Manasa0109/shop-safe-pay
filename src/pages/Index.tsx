@@ -93,9 +93,13 @@ const Index = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [wishlist, setWishlist] = useState<number[]>([]);
   
   const { toast } = useToast();
+
+  // Get unique categories
+  const categories = ["All", ...Array.from(new Set(products.map(product => product.category)))];
 
   const addToCart = (product: Product) => {
     setCart(prevCart => {
@@ -146,10 +150,12 @@ const Index = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
-  const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   const handleCheckout = () => {
     if (cart.length === 0) {
@@ -214,6 +220,29 @@ const Index = () => {
             </div>
           </div>
         </div>
+
+        {/* Category Navigation */}
+        <div className="border-t border-indigo-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center space-x-1 py-4 overflow-x-auto">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory(category)}
+                  className={`whitespace-nowrap rounded-full px-6 py-2 transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg hover:shadow-xl'
+                      : 'hover:bg-indigo-50 text-gray-700 hover:text-indigo-600'
+                  }`}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+          </div>
+        </div>
       </header>
 
       {/* Dynamic Hero Section */}
@@ -252,8 +281,18 @@ const Index = () => {
       {/* Enhanced Products Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-gray-900 mb-4">Featured Products</h3>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Handpicked items that combine quality, innovation, and style</p>
+          <h3 className="text-4xl font-bold text-gray-900 mb-4">
+            {selectedCategory === "All" ? "Featured Products" : `${selectedCategory} Products`}
+          </h3>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            {selectedCategory === "All" 
+              ? "Handpicked items that combine quality, innovation, and style"
+              : `Discover amazing ${selectedCategory.toLowerCase()} products`
+            }
+          </p>
+          <div className="mt-4 text-sm text-gray-500">
+            Showing {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -274,7 +313,11 @@ const Index = () => {
                     </Badge>
                   )}
                   
-                  <div className="absolute top-4 right-4 space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <Badge className="absolute top-4 right-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+                    {product.category}
+                  </Badge>
+                  
+                  <div className="absolute bottom-4 right-4 space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <Button
                       size="sm"
                       variant="outline"
@@ -342,6 +385,16 @@ const Index = () => {
             </Card>
           ))}
         </div>
+
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-16">
+            <div className="text-gray-400 mb-4">
+              <Search className="h-16 w-16 mx-auto mb-4" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
+            <p className="text-gray-600">Try adjusting your search or category filter</p>
+          </div>
+        )}
       </section>
 
       {/* Enhanced Cart Sidebar */}
